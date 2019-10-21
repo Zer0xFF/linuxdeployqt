@@ -3,7 +3,7 @@
 set -e
 
 ARCH=`dpkg --print-architecture`
-if [ "$ARCH" == "amd64"]
+if [ "$ARCH" == "amd64" ]
 then
 	sudo add-apt-repository --yes ppa:beineri/opt-qt593-trusty
 	sudo apt-get update -qq
