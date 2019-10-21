@@ -41,7 +41,7 @@ find linuxdeployqt.AppDir/
 export VERSION=continuous
 if [ ! -z $TRAVIS_TAG ] ; then export VERSION=$TRAVIS_TAG ; fi
 ./bin/linuxdeployqt linuxdeployqt.AppDir/linuxdeployqt.desktop -verbose=3 -appimage \
-    -executable=linuxdeployqt.AppDir/usr/bin/desktop-file-validate
+    -unsupported-allow-new-glibc -executable=linuxdeployqt.AppDir/usr/bin/desktop-file-validate
 ls -lh
 find *.AppDir
 xpra start :99
