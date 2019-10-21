@@ -54,7 +54,7 @@ do
 done
 
 # enable core dumps
-echo "/tmp/coredump" | sudo tee /proc/sys/kernel/core_pattern
+# echo "/tmp/coredump" | sudo tee /proc/sys/kernel/core_pattern
 
 ulimit -c unlimited
 ulimit -a -S
