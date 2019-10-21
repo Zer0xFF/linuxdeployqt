@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+# set -x
 
 ARCH=`dpkg --print-architecture`
 if [ "$ARCH" == "amd64" ]
