@@ -2,16 +2,12 @@
 
 set -x
 
-ARCH=`dpkg --print-architecture`
-if [ "$ARCH" != "amd64" ]
-then
-  echo $ARCH
-  return
-fi
 source /opt/qt*/bin/qt*-env.sh
 /opt/qt*/bin/qmake CONFIG+=release CONFIG+=force_debug_info linuxdeployqt.pro
 # make -j$(nproc) # Not doing here but below with "pvs-tool trace"
-
+ARCH=`dpkg --print-architecture`
+if [ "$ARCH" == "amd64" ]
+then
 # Test
 wget -q -O - http://files.viva64.com/etc/pubkey.txt | sudo apt-key add -
 sudo wget -O /etc/apt/sources.list.d/viva64.list http://files.viva64.com/etc/viva64.list
@@ -22,6 +18,7 @@ pvs-studio-analyzer trace -- make -j$(nproc)
 pvs-studio-analyzer analyze -e /opt -e /usr -o pvs-studio.log -j $(nproc) -l ./licence.lic
 plog-converter -a GA:1,2 -t tasklist -o pvs-studio-report.txt pvs-studio.log
 rm ./licence.lic
+fi
 
 # exit on failure
 set -e
@@ -59,7 +56,7 @@ ulimit -a -H
 set +e
 
 # print version number
-./linuxdeployqt-*-x86_64.AppImage --version
+./linuxdeployqt-*-*.AppImage --version
 
 # TODO: reactivate tests
 #bash -e tests/tests.sh
@@ -70,7 +67,7 @@ if [ $RESULT -ne 0 ]; then
   echo "FAILURE: linuxdeployqt CRASHED -- uploading files for debugging to transfer.sh"
   set -v
   [ -e /tmp/coredump ] && curl --upload-file /tmp/coredump https://transfer.sh/coredump
-  curl --upload-file linuxdeployqt-*-x86_64.AppImage https://transfer.sh/linuxdeployqt-x86_64.AppImage
+  curl --upload-file linuxdeployqt-*-*.AppImage https://transfer.sh/linuxdeployqt-*.AppImage
   find -type f -iname 'libQt5Core.so*' -exec curl --upload {} https://transfer.sh/libQt5Core.so \; || true
   exit $RESULT
 fi
