@@ -2,6 +2,12 @@
 
 set -x
 
+ARCH=`dpkg --print-architecture`
+if [ "$ARCH" != "amd64" ]
+then
+  echo $ARCH
+  return
+fi
 source /opt/qt*/bin/qt*-env.sh
 /opt/qt*/bin/qmake CONFIG+=release CONFIG+=force_debug_info linuxdeployqt.pro
 # make -j$(nproc) # Not doing here but below with "pvs-tool trace"
