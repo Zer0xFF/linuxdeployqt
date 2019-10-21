@@ -34,7 +34,7 @@ then
 
 else
 	sudo apt-get update -qq
-	sudo apt install -y zlib1g
+	sudo apt install -y zlib1g zlib1g-dev
 	cd /tmp/
 	wget -c "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-aarch64.AppImage"
 	chmod +x appimagetool*AppImage
