@@ -33,6 +33,8 @@ then
 	sudo apt-get -y install qt59base qt59declarative qt59webengine binutils xpra zsync desktop-file-utils gcc g++ make libgl1-mesa-dev fuse psmisc qt59translations
 
 else
+	sudo apt-get update -qq
+	sudo apt install -y zlib1g
 	cd /tmp/
 	wget -c "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-aarch64.AppImage"
 	chmod +x appimagetool*AppImage
@@ -42,6 +44,5 @@ else
 	sudo chmod +rx /usr/local/lib/appimagekit
 	cd -
 
-	sudo apt-get update -qq
 	sudo apt install -y cmake g++ qt5-qmake pkg-config fuse file qtbase5-dev patchelf
 fi
