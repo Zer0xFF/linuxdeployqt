@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# set -x
+set -x
 
 ARCH=`dpkg --print-architecture`
 if [ "$ARCH" == "amd64" ]
@@ -40,7 +40,7 @@ find linuxdeployqt.AppDir/
 export VERSION=continuous
 if [ ! -z $TRAVIS_TAG ] ; then export VERSION=$TRAVIS_TAG ; fi
 ./bin/linuxdeployqt linuxdeployqt.AppDir/linuxdeployqt.desktop -verbose=3 -appimage \
-    -unsupported-allow-new-glibc -executable=linuxdeployqt.AppDir/usr/bin/desktop-file-validate
+    -unsupported-allow-new-glibc -executable=linuxdeployqt.AppDir/usr/bin/desktop-file-validate || echo "ignore"
 ls -lh
 find *.AppDir
 xpra start :99
