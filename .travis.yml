@@ -3,6 +3,9 @@ sudo: required
 dist: trusty
 
 os: linux
+arch:
+  - amd64
+  - arm64
 
 env:
   global:
