@@ -24,7 +24,8 @@ rm ./licence.lic
 else
 export QT_SELECT=qt5
 qmake CONFIG+=release CONFIG+=force_debug_info linuxdeployqt.pro
-which qmake
+
+make -j$(nproc)
 
 fi
 
