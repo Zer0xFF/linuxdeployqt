@@ -38,6 +38,7 @@ cp ./bin/linuxdeployqt linuxdeployqt.AppDir/usr/bin/
 cp -r /usr/local/lib/appimagekit linuxdeployqt.AppDir/usr/lib/
 chmod +x linuxdeployqt.AppDir/AppRun
 find linuxdeployqt.AppDir/
+ldd linuxdeployqt.AppDir/usr/bin/*
 export VERSION=continuous
 if [ ! -z $TRAVIS_TAG ] ; then export VERSION=$TRAVIS_TAG ; fi
 ./bin/linuxdeployqt linuxdeployqt.AppDir/linuxdeployqt.desktop -verbose=3 -appimage \
