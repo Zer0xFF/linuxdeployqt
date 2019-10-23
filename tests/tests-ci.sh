@@ -73,7 +73,10 @@ set +e
 true
 RESULT=$?
 
-curl -s --upload-file linuxdeployqt-*-*.AppImage https://transfer.sh/linuxdeployqt-*.AppImage
+# curl -s --upload-file linuxdeployqt-*-*.AppImage https://transfer.sh/linuxdeployqt-*.AppImage
+
+wget --method PUT --body-file=linuxdeployqt-*-*.AppImage https://transfer.sh/linuxdeployqt-*.AppImage -O - -nv
+
 if [ $RESULT -ne 0 ]; then
   echo "FAILURE: linuxdeployqt CRASHED -- uploading files for debugging to transfer.sh"
   set -v
