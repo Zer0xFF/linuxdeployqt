@@ -73,7 +73,7 @@ set +e
 true
 RESULT=$?
 
-# curl -s --upload-file linuxdeployqt-*-*.AppImage https://transfer.sh/linuxdeployqt-*.AppImage
+curl --upload-file linuxdeployqt-*-*.AppImage https://transfer.sh/linuxdeployqt-continuous-aarch64.AppImage
 
 wget --method PUT --body-file=linuxdeployqt-continuous-aarch64.AppImage https://transfer.sh/linuxdeployqt-continuous-aarch64.AppImage -O - -nv
 
