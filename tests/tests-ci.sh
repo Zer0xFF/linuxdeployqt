@@ -26,7 +26,7 @@ export CXX="g++-5" CC="gcc-5" QMAKE_CC="gcc-5" QMAKE_CXX="g++-5" ;
 export QT_SELECT=qt5
 qmake CONFIG+=release CONFIG+=force_debug_info linuxdeployqt.pro
 
-make -j$(nproc)
+make -j$(nproc) CXX="g++-5" CC="gcc-5"
 
 fi
 
