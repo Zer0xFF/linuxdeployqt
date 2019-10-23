@@ -44,5 +44,5 @@ else
 	sudo chmod +rx /usr/local/lib/appimagekit
 	cd -
 
-	sudo apt install -y cmake gcc-5 g++-5 qt5-qmake pkg-config fuse file qtbase5-dev patchelf desktop-file-utils xpra
+	sudo apt install -y --no-install-recommends cmake gcc-4.8 g++-4.8 qt5-qmake pkg-config fuse file qtbase5-dev patchelf desktop-file-utils xpra
 fi
