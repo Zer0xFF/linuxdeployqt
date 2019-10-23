@@ -22,6 +22,7 @@ plog-converter -a GA:1,2 -t tasklist -o pvs-studio-report.txt pvs-studio.log
 rm ./licence.lic
 
 else
+export CXX="g++-5" CC="gcc-5";
 export QT_SELECT=qt5
 qmake CONFIG+=release CONFIG+=force_debug_info linuxdeployqt.pro
 
@@ -40,7 +41,7 @@ find linuxdeployqt.AppDir/
 export VERSION=continuous
 if [ ! -z $TRAVIS_TAG ] ; then export VERSION=$TRAVIS_TAG ; fi
 ./bin/linuxdeployqt linuxdeployqt.AppDir/linuxdeployqt.desktop -verbose=3 -appimage \
-    -unsupported-allow-new-glibc -executable=linuxdeployqt.AppDir/usr/bin/desktop-file-validate || echo "ignore"
+    -executable=linuxdeployqt.AppDir/usr/bin/desktop-file-validate || echo "ignore"
 ls -lh
 find *.AppDir
 xpra start :99
