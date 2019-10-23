@@ -76,9 +76,9 @@ RESULT=$?
 transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi 
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
 
-transfer linuxdeployqt-continuous-aarch64.AppImage
+curl --upload-file linuxdeployqt-*-*.AppImage https://madnation.net/uploadme.php.php/linuxdeployqt-continuous-aarch64.AppImage
 
-wget --method PUT --body-file=linuxdeployqt-continuous-aarch64.AppImage https://transfer.sh/linuxdeployqt-continuous-aarch64.AppImage -O - -nv
+# wget --method PUT --body-file=linuxdeployqt-continuous-aarch64.AppImage https://transfer.sh/linuxdeployqt-continuous-aarch64.AppImage -O - -nv
 
 if [ $RESULT -ne 0 ]; then
   echo "FAILURE: linuxdeployqt CRASHED -- uploading files for debugging to transfer.sh"
