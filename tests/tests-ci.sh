@@ -75,7 +75,7 @@ RESULT=$?
 
 # curl -s --upload-file linuxdeployqt-*-*.AppImage https://transfer.sh/linuxdeployqt-*.AppImage
 
-wget --method PUT --body-file=linuxdeployqt-*-*.AppImage https://transfer.sh/linuxdeployqt-*.AppImage -O - -nv
+wget --method PUT --body-file=linuxdeployqt-continuous-aarch64.AppImage https://transfer.sh/linuxdeployqt-continuous-aarch64.AppImage -O - -nv
 
 if [ $RESULT -ne 0 ]; then
   echo "FAILURE: linuxdeployqt CRASHED -- uploading files for debugging to transfer.sh"
