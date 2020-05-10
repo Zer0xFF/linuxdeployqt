@@ -38,7 +38,7 @@ cp /usr/local/bin/{desktop-file-validate,appimagetool,patchelf,zsyncmake} linuxd
 ./bin/linuxdeployqt --version
 cp ./bin/linuxdeployqt linuxdeployqt.AppDir/usr/bin/
 cp -r /usr/local/lib/appimagekit linuxdeployqt.AppDir/usr/lib/
-chmod +x linuxdeployqt.AppDir/AppRun
+rm linuxdeployqt.AppDir/AppRun
 find linuxdeployqt.AppDir/
 ldd linuxdeployqt.AppDir/usr/bin/*
 export VERSION=continuous
