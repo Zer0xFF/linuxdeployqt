@@ -36,9 +36,14 @@ set -e
 mkdir -p linuxdeployqt.AppDir/usr/{bin,lib}
 cp /usr/local/bin/{desktop-file-validate,appimagetool,patchelf,zsyncmake} linuxdeployqt.AppDir/usr/bin/
 ./bin/linuxdeployqt --version
+/usr/local/bin/desktop-file-validate
+/usr/local/bin/appimagetool
+/usr/local/bin/patchelf
+/usr/local/bin/zsyncmake
 cp ./bin/linuxdeployqt linuxdeployqt.AppDir/usr/bin/
 cp -r /usr/local/lib/appimagekit linuxdeployqt.AppDir/usr/lib/
-rm linuxdeployqt.AppDir/AppRun
+chmod -x linuxdeployqt.AppDir/AppRun
+linuxdeployqt.AppDir/AppRun
 find linuxdeployqt.AppDir/
 ldd linuxdeployqt.AppDir/usr/bin/*
 export VERSION=continuous
