@@ -2,8 +2,9 @@
 
 set -e
 
-git clone -o 21a85cc https://github.com/NixOS/patchelf
+git clone https://github.com/NixOS/patchelf
 cd patchelf
+git checkout 21a85cc
 bash ./bootstrap.sh
 ./configure
 make -j2
