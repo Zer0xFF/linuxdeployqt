@@ -68,7 +68,7 @@ done
 set +e
 
 # print version number
-gdb -ex=r -ex="bt full" ./linuxdeployqt-*.AppImage --version
+./linuxdeployqt-*.AppImage --version
 
 # TODO: reactivate tests
 #bash -e tests/tests.sh
