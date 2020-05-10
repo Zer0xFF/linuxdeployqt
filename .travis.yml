@@ -1,8 +1,11 @@
 language: cpp
 sudo: required
-dist: trusty
+dist: xenial
 
 os: linux
+arch:
+  - amd64
+  - arm64
 
 env:
   global:
