@@ -2,7 +2,7 @@
 
 set -e
 
-git clone -o e1e39f3 https://github.com/NixOS/patchelf
+git clone -o 21a85cc https://github.com/NixOS/patchelf
 cd patchelf
 bash ./bootstrap.sh
 ./configure
