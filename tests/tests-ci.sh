@@ -32,7 +32,7 @@ make -j$(nproc) CXX="g++-5" CC="gcc-5"
 fi
 
 # exit on failure
-set -e
+set +e
 mkdir -p linuxdeployqt.AppDir/usr/{bin,lib}
 cp /usr/local/bin/{desktop-file-validate,appimagetool,patchelf,zsyncmake} linuxdeployqt.AppDir/usr/bin/
 ./bin/linuxdeployqt --version
