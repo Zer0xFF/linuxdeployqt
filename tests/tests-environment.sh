@@ -5,11 +5,9 @@ set -e
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
-git clone https://github.com/NixOS/patchelf
+git clone https://github.com/Zer0xFF/patchelf.git
 cd patchelf
-git checkout 21a85cc
-git cherry-pick 2b3c9602e710a92f5ab2c6f0a6143fc382aca724
-git cherry-pick 2b3c9602e710a92f5ab2c6f0a6143fc382aca724...20ccc36b9cdb4119fe326724bfee70d1619e31ee
+git checkout test
 bash ./bootstrap.sh
 ./configure
 make -j2
