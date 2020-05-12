@@ -2,6 +2,9 @@
 
 set -e
 
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
 git clone https://github.com/NixOS/patchelf
 cd patchelf
 git checkout 21a85cc
