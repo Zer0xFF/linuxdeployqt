@@ -5,6 +5,8 @@ set -e
 git clone https://github.com/NixOS/patchelf
 cd patchelf
 git checkout 21a85cc
+git cherry-pick 2b3c9602e710a92f5ab2c6f0a6143fc382aca724
+git cherry-pick 2b3c9602e710a92f5ab2c6f0a6143fc382aca724...20ccc36b9cdb4119fe326724bfee70d1619e31ee
 bash ./bootstrap.sh
 ./configure
 make -j2
