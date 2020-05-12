@@ -5,6 +5,8 @@ set -e
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
+which getconfig
+getconfig PAGESIZE
 git clone https://github.com/Zer0xFF/patchelf.git
 cd patchelf
 git checkout test
